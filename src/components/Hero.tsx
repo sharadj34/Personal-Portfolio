@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import heroGif from '../assets/hero_gif.gif';
+import linkedinIcon from '../assets/linkedin.png';
+import githubIcon from '../assets/github.png';
+import leetcodeIcon from '../assets/leetcode.png'; // You'll need to add this icon to assets
+import gmailIcon from '../assets/gmail.png';
+import instagramIcon from '../assets/instagram.png';
+import cvIcon from '../assets/curriculum-vitae.png';
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -185,34 +191,34 @@ const Hero: React.FC = () => {
                 }}>
                   {[
                     { 
-                      img: '../assets/linkedin.png', 
-                      link: 'https://linkedin.com/in/yourprofile', 
-                      bg: '#0077b5' 
+                      img: linkedinIcon, 
+                      link: 'https://www.linkedin.com/in/sharadj34/', 
+                      alt: 'LinkedIn' 
                     }, 
                     { 
-                      img: '../assets/github.png', 
-                      link: 'https://github.com/yourusername', 
-                      bg: '#333' 
+                      img: githubIcon, 
+                      link: 'https://github.com/sharadj34', 
+                      alt: 'GitHub' 
                     }, 
                     { 
-                      img: 'twitter.png', 
-                      link: 'https://twitter.com/yourusername', 
-                      bg: '#1da1f2' 
+                      img: gmailIcon, 
+                      link: 'mailto:sharad.jha1010@gmail.com', 
+                      alt: 'Mail' 
                     }, 
                     { 
-                      img: 'email.png', 
-                      link: 'mailto:your.email@example.com', 
-                      bg: '#ea4335' 
+                      img: leetcodeIcon, 
+                      link: 'https://leetcode.com/u/sophisticated89/', 
+                      alt: 'LeetCode' 
+                    },
+                    { 
+                      img: instagramIcon, 
+                      link: 'https://www.instagram.com/sharad_10.10?igsh=a2llbXNtZXl5YmEx', 
+                      alt: 'Instagram' 
                     }, 
                     { 
-                      img: 'whatsapp.png', 
-                      link: '#', 
-                      bg: '#25d366' 
-                    }, 
-                    { 
-                      img: 'telegram.png', 
-                      link: '#', 
-                      bg: '#6c757d' 
+                      img: cvIcon, 
+                      link: 'https://docs.google.com/document/d/1piR19w6DzZg1DkrhIC0xWwdHkYnxfeMJj7BYc63ePZw/edit?usp=sharing', 
+                      alt: 'CV' 
                     } 
                   ].map((social, index) => (
                     <a
@@ -226,13 +232,8 @@ const Hero: React.FC = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundColor: social.bg,
-                        color: 'white',
-                        borderRadius: '50%',
-                        fontSize: '1.2rem',
                         textDecoration: 'none',
-                        transition: 'transform 0.3s ease',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                        transition: 'transform 0.3s ease'
                       }}
                       onMouseOver={(e) => {
                         e.currentTarget.style.transform = 'translateY(-3px) scale(1.1)';
@@ -242,13 +243,12 @@ const Hero: React.FC = () => {
                       }}
                     >
                             <img 
-        src={`/images/${social.img}`} 
-        alt={social.img.split('.')[0]} 
+        src={social.img} 
+        alt={social.alt} 
         style={{
-          width: '30px', 
-          height: '30px', 
-          objectFit: 'cover', 
-          borderRadius: '50%'
+          width: '40px', 
+          height: '40px', 
+          objectFit: 'contain'
         }} 
       />
 
