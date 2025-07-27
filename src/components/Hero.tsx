@@ -177,51 +177,85 @@ const Hero: React.FC = () => {
           </button>
           </div>
 
-          {/* Social Icons */}
-          <div style={{
-            marginTop: '40px',
-            display: 'flex',
-            gap: '15px'
-          }}>
-            {[
-              { icon: '💼', link: 'https://linkedin.com/in/yourprofile', bg: '#0077b5' },
-              { icon: '🐙', link: 'https://github.com/yourusername', bg: '#333' },
-              { icon: '🐦', link: 'https://twitter.com/yourusername', bg: '#1da1f2' },
-              { icon: '📧', link: 'mailto:your.email@example.com', bg: '#ea4335' },
-              { icon: '💬', link: '#', bg: '#25d366' },
-              { icon: '📋', link: '#', bg: '#6c757d' }
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  width: '50px',
-                  height: '50px',
+                {/* Social Icons */}
+                <div style={{
+                  marginTop: '40px',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: social.bg,
-                  color: 'white',
-                  borderRadius: '50%',
-                  fontSize: '1.2rem',
-                  textDecoration: 'none',
-                  transition: 'transform 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.1)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                }}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div>
+                  gap: '15px'
+                }}>
+                  {[
+                    { 
+                      img: '../assets/linkedin.png', 
+                      link: 'https://linkedin.com/in/yourprofile', 
+                      bg: '#0077b5' 
+                    }, 
+                    { 
+                      img: '../assets/github.png', 
+                      link: 'https://github.com/yourusername', 
+                      bg: '#333' 
+                    }, 
+                    { 
+                      img: 'twitter.png', 
+                      link: 'https://twitter.com/yourusername', 
+                      bg: '#1da1f2' 
+                    }, 
+                    { 
+                      img: 'email.png', 
+                      link: 'mailto:your.email@example.com', 
+                      bg: '#ea4335' 
+                    }, 
+                    { 
+                      img: 'whatsapp.png', 
+                      link: '#', 
+                      bg: '#25d366' 
+                    }, 
+                    { 
+                      img: 'telegram.png', 
+                      link: '#', 
+                      bg: '#6c757d' 
+                    } 
+                  ].map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        width: '50px',
+                        height: '50px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: social.bg,
+                        color: 'white',
+                        borderRadius: '50%',
+                        fontSize: '1.2rem',
+                        textDecoration: 'none',
+                        transition: 'transform 0.3s ease',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-3px) scale(1.1)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      }}
+                    >
+                            <img 
+        src={`/images/${social.img}`} 
+        alt={social.img.split('.')[0]} 
+        style={{
+          width: '30px', 
+          height: '30px', 
+          objectFit: 'cover', 
+          borderRadius: '50%'
+        }} 
+      />
+
+                    </a>
+                  ))}
+                </div>
+              </div>
 
         {/* Right Content - Avatar */}
         <div style={{

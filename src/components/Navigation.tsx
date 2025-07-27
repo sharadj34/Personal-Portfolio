@@ -57,18 +57,17 @@ const Navigation: React.FC = () => {
           fontWeight: 'bold',
           color: '#2c3e50'
         }}>
-          <span style={{
-            backgroundColor: '#667eea',
-            color: 'white',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: '12px',
-            fontSize: '1.2rem'
-          }}>SJ</span>
+          <img 
+            src="/favcon.png" 
+            alt="Logo" 
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '8px',
+              marginRight: '12px',
+              objectFit: 'cover'
+            }}
+          />
           Sharad Jha
         </div>
         
