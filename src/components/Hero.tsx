@@ -194,17 +194,17 @@ const Hero: React.FC = () => {
                 }}>
                   {[
                     { 
-                      img: linkedinIcon, 
+                      img: '/assets/linkedin.png', 
                       link: 'https://www.linkedin.com/in/sharadj34/', 
                       alt: 'LinkedIn' 
                     }, 
                     { 
-                      img: githubIcon, 
+                      img: '/assets/github.png', 
                       link: 'https://github.com/sharadj34', 
                       alt: 'GitHub' 
                     }, 
                     { 
-                      img: gmailIcon, 
+                      img: '/assets/gmail.png', 
                       link: 'mailto:sharad.jha1010@gmail.com', 
                       alt: 'Mail' 
                     }, 
@@ -214,9 +214,14 @@ const Hero: React.FC = () => {
                       alt: 'LeetCode' 
                     },
                     { 
-                      img: instagramIcon, 
+                      img: '/assets/instagram.png', 
                       link: 'https://www.instagram.com/sharad_10.10?igsh=a2llbXNtZXl5YmEx', 
                       alt: 'Instagram' 
+                    },
+                    { 
+                      img: '/assets/twitter.png', 
+                      link: 'https://www.instagram.com/sharad_10.10?igsh=a2llbXNtZXl5YmEx', 
+                      alt: 'X' 
                     }
                   ].map((social, index) => (
                     <a
