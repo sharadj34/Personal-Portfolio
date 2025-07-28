@@ -3,18 +3,31 @@ import React from 'react';
 const Education: React.FC = () => {
   const education = [
     {
-      degree: 'Bachelor of Engineering in Information Technology',
-      institution: 'Your University Name',
-      duration: '2020-2024',
+      institution: 'VIT Bhopal University, Bhopal, IND',
+      degree: 'B.Tech in Computer Science and Engineering',
+      duration: '2021 - 2025',
       status: 'Completed',
-      icon: '🎓'
+      cgpa: '8.77',
+      scoreType: 'CGPA',
+      image: '/assets/vit.jpg'
     },
     {
-      degree: 'HSC Science | Computer Science',
-      institution: 'Your High School Name',
-      duration: '2018-2020',
+      institution: 'Christ the King College, Jhansi, IND',
+      degree: 'Higher Secondary Certificate (Class XII) - PCM',
+      duration: '2019 - 2021',
       status: 'Completed',
-      icon: '🏫'
+      cgpa: '86.17%',
+      scoreType: 'Percentage',
+      image: '/assets/ckc.png' // Add this image to public/assets folder
+    },
+    {
+      institution: 'Christ the King College, Jhansi, IND',
+      degree: 'Secondary School Certificate (Class X)',
+      duration: '2017 - 2019',
+      status: 'Completed',
+      cgpa: '81.83%',
+      scoreType: 'Percentage',
+      image: '/assets/ckc.png' // Add this image to public/assets folder
     }
   ];
 
@@ -46,63 +59,103 @@ const Education: React.FC = () => {
         </p>
 
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '30px'
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '30px',
+          maxWidth: '800px',
+          margin: '0 auto'
         }}>
           {education.map((edu, index) => (
             <div key={index} style={{
               backgroundColor: 'white',
-              padding: '30px',
-              borderRadius: '15px',
-              boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
-              textAlign: 'left',
-              border: '2px solid transparent',
-              transition: 'all 0.3s ease'
-            }}>
+              padding: '25px',
+              borderRadius: '12px',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+              transition: 'all 0.3s ease',
+              border: '1px solid #e0e0e0'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.boxShadow = '0 5px 20px rgba(0,0,0,0.15)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            >
+              {/* Institution Logo */}
               <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '20px'
+                flexShrink: 0,
+                width: '80px',
+                height: '80px',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '2px solid #f0f0f0'
               }}>
-                <span style={{
-                  fontSize: '2.5rem',
-                  marginRight: '15px'
-                }}>{edu.icon}</span>
-                <div>
-                  <h3 style={{
-                    color: '#667eea',
-                    fontSize: '1.4rem',
-                    margin: '0 0 5px 0',
-                    fontWeight: 'bold'
-                  }}>{edu.degree}</h3>
-                  <p style={{
-                    color: '#666',
-                    margin: 0,
-                    fontSize: '1rem'
-                  }}>{edu.institution}</p>
-                </div>
+                <img 
+                  src={edu.image} 
+                  alt={edu.institution}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
               </div>
-              
+
+              {/* Institution Details */}
+              <div style={{ flex: 1, textAlign: 'left' }}>
+                <h3 style={{
+                  color: '#6B73FF',
+                  fontSize: '1.4rem',
+                  margin: '0 0 8px 0',
+                  fontWeight: '600'
+                }}>
+                  {edu.institution}
+                </h3>
+                <p style={{
+                  color: '#666',
+                  margin: '0 0 8px 0',
+                  fontSize: '1rem',
+                  lineHeight: '1.4'
+                }}>
+                  {edu.degree}
+                </p>
+                <p style={{
+                  color: '#888',
+                  margin: '0',
+                  fontSize: '0.9rem'
+                }}>
+                  {edu.scoreType}: <span style={{ fontWeight: '600', color: '#333' }}>{edu.cgpa}</span>
+                </p>
+              </div>
+
+              {/* Duration and Status */}
               <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: '20px'
+                textAlign: 'right',
+                flexShrink: 0
               }}>
-                <span style={{
+                <div style={{
                   color: '#333',
                   fontWeight: 'bold',
-                  fontSize: '1rem'
-                }}>{edu.duration}</span>
+                  fontSize: '1rem',
+                  marginBottom: '8px'
+                }}>
+                  {edu.duration}
+                </div>
                 <span style={{
-                  backgroundColor: '#667eea',
+                  backgroundColor: '#6B73FF',
                   color: 'white',
-                  padding: '5px 15px',
+                  padding: '6px 16px',
                   borderRadius: '20px',
-                  fontSize: '0.9rem',
-                  fontWeight: 'bold'
-                }}>{edu.status}</span>
+                  fontSize: '0.85rem',
+                  fontWeight: '500'
+                }}>
+                  {edu.status}
+                </span>
               </div>
             </div>
           ))}

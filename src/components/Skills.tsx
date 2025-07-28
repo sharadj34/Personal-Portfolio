@@ -2,86 +2,105 @@ import React from 'react';
 
 const Skills: React.FC = () => {
   const skills = [
-    { 
-  name: 'Python', 
-  level: 80, 
-  icon: <img src="assets/python.png" alt="Python" style={{ width: '25px', height: '25px' }} />
-    },
-    { 
-  name: 'C++', 
-  level: 90, 
-  icon: <img src="assets/cpp.png" alt="C++" style={{ width: '25px', height: '25px' }} />
-    },
-    { name: 'TypeScript', level: 80, icon: '🔷' },
-    { name: 'Node.js', level: 85, icon: '🟢' },
-    { name: 'Python', level: 75, icon: '🐍' },
-    { name: 'MongoDB', level: 80, icon: '🍃' },
-    { name: 'HTML/CSS', level: 90, icon: '🎨' },
-    { name: 'Git', level: 85, icon: '📝' }
+    { name: 'ReactJS', icon: '⚛️', color: '#61DAFB' },
+    { name: 'ExpressJS', icon: '🟢', color: '#68A063' },
+    { name: 'NodeJS', icon: '🟢', color: '#68A063' },
+    { name: 'Redux', icon: '🔄', color: '#764ABC' },
+    { name: 'Firebase', icon: '🔥', color: '#FFCA28' },
+    { name: 'Android', icon: '🤖', color: '#3DDC84' },
+    { name: 'MaterialUI', icon: '🎨', color: '#0081CB' },
+    { name: 'ChakraUI', icon: '⚡', color: '#319795' },
+    { name: 'TailwindCSS', icon: '🌊', color: '#06B6D4' },
+    { name: 'Bootstrap', icon: '🅱️', color: '#7952B3' },
+    { name: 'Sass', icon: '💅', color: '#CC6699' },
+    { name: 'HTML5', icon: '🌐', color: '#E34F26' },
+    { name: 'CSS3', icon: '🎨', color: '#1572B6' },
+    { name: 'JavaScript', icon: '📜', color: '#F7DF1E' },
+    { name: 'Java', icon: '☕', color: '#ED8B00' },
+    { name: 'Kotlin', icon: '🔷', color: '#0095D5' },
+    { name: 'PHP', icon: '🐘', color: '#777BB4' },
+    { name: 'Python', icon: '🐍', color: '#3776AB' }
   ];
 
   return (
     <section id="skills" style={{
       padding: '80px 20px',
-      backgroundColor: 'white',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       textAlign: 'center',
       width: '100%',
       maxWidth: '100vw',
       boxSizing: 'border-box',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      minHeight: '100vh'
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          marginBottom: '20px',
-          color: '#333',
-          fontWeight: 'bold'
-        }}>Skills & Abilities</h2>
-  
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '60px'
+        }}>
+          <span style={{
+            fontSize: '2.5rem',
+            marginRight: '15px',
+            color: 'white'
+          }}>💻</span>
+          <h2 style={{
+            fontSize: '3rem',
+            margin: '0',
+            color: 'white',
+            fontWeight: 'bold'
+          }}>
+            Skills & <span style={{ color: '#FFD700' }}>Abilities</span>
+          </h2>
+        </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '30px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gap: '20px',
+          maxWidth: '1200px',
+          margin: '0 auto'
         }}>
           {skills.map((skill, index) => (
-            <div key={index} style={{
-              backgroundColor: '#f8f9fa',
-              padding: '25px',
-              borderRadius: '10px',
-              boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
-              transition: 'transform 0.3s ease'
-            }}>
+            <div 
+              key={index} 
+              style={{
+                backgroundColor: '#1a1a2e',
+                padding: '30px 20px',
+                borderRadius: '15px',
+                boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                border: '1px solid rgba(255,255,255,0.1)'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+                e.currentTarget.style.backgroundColor = '#16213e';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+                e.currentTarget.style.backgroundColor = '#1a1a2e';
+              }}
+            >
               <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '15px'
+                fontSize: '3rem',
+                marginBottom: '15px',
+                color: skill.color
               }}>
-                <span style={{ fontSize: '2rem', marginRight: '15px' }}>{skill.icon}</span>
-                <h3 style={{ color: '#333', fontSize: '1.3rem', margin: 0 }}>{skill.name}</h3>
+                {skill.icon}
               </div>
               
-              <div style={{
-                backgroundColor: '#e9ecef',
-                borderRadius: '10px',
-                overflow: 'hidden',
-                height: '10px'
+              <h3 style={{
+                color: 'white',
+                fontSize: '1.2rem',
+                margin: '0',
+                fontWeight: '600'
               }}>
-                <div style={{
-                  width: `${skill.level}%`,
-                  height: '100%',
-                  background: 'linear-gradient(90deg, #667eea, #764ba2)',
-                  borderRadius: '10px',
-                  transition: 'width 0.3s ease'
-                }}></div>
-              </div>
-              
-              <span style={{
-                display: 'block',
-                marginTop: '10px',
-                color: '#667eea',
-                fontWeight: 'bold'
-              }}>{skill.level}%</span>
+                {skill.name}
+              </h3>
             </div>
           ))}
         </div>
