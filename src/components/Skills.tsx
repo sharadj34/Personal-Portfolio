@@ -2,8 +2,16 @@ import React from 'react';
 
 const Skills: React.FC = () => {
   const skills = [
-    { name: 'React', level: 90, icon: '⚛️' },
-    { name: 'JavaScript', level: 85, icon: '🟨' },
+    { 
+  name: 'Python', 
+  level: 80, 
+  icon: <img src="assets/python.png" alt="Python" style={{ width: '25px', height: '25px' }} />
+    },
+    { 
+  name: 'C++', 
+  level: 90, 
+  icon: <img src="assets/cpp.png" alt="C++" style={{ width: '25px', height: '25px' }} />
+    },
     { name: 'TypeScript', level: 80, icon: '🔷' },
     { name: 'Node.js', level: 85, icon: '🟢' },
     { name: 'Python', level: 75, icon: '🐍' },
@@ -29,15 +37,7 @@ const Skills: React.FC = () => {
           color: '#333',
           fontWeight: 'bold'
         }}>Skills & Abilities</h2>
-        
-        <p style={{
-          fontSize: '1.1rem',
-          color: '#666',
-          marginBottom: '50px',
-          fontStyle: 'italic'
-        }}>
-          "Education is not the learning of facts, but the training of the mind to think."
-        </p>
+  
 
         <div style={{
           display: 'grid',

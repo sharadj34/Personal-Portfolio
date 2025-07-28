@@ -214,12 +214,7 @@ const Hero: React.FC = () => {
                       img: instagramIcon, 
                       link: 'https://www.instagram.com/sharad_10.10?igsh=a2llbXNtZXl5YmEx', 
                       alt: 'Instagram' 
-                    }, 
-                    { 
-                      img: cvIcon, 
-                      link: 'https://docs.google.com/document/d/1piR19w6DzZg1DkrhIC0xWwdHkYnxfeMJj7BYc63ePZw/edit?usp=sharing', 
-                      alt: 'CV' 
-                    } 
+                    }
                   ].map((social, index) => (
                     <a
                       key={index}
