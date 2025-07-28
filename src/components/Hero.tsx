@@ -202,12 +202,7 @@ const Hero: React.FC = () => {
                       img: '/assets/github.png', 
                       link: 'https://github.com/sharadj34', 
                       alt: 'GitHub' 
-                    }, 
-                    { 
-                      img: '/assets/gmail.png', 
-                      link: 'mailto:sharad.jha1010@gmail.com', 
-                      alt: 'Mail' 
-                    }, 
+                    },
                     { 
                       img: '/assets/leetcode.png', 
                       link: 'https://leetcode.com/u/sophisticated89/', 
