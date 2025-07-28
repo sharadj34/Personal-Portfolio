@@ -81,17 +81,6 @@ const Navigation: React.FC = () => {
           fontWeight: 'bold',
           color: '#2c3e50'
         }}>
-          <img 
-            src="/favcon.png" 
-            alt="Logo" 
-            style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '8px',
-              marginRight: '12px',
-              objectFit: 'cover'
-            }}
-          />
           Sharad Jha
         </div>
         

@@ -46,6 +46,7 @@ const Hero: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [currentText, currentIndex, isDeleting, phrases]);
 
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -61,9 +62,8 @@ const Hero: React.FC = () => {
       justifyContent: 'center',
       padding: isMobile ? '120px 20px 60px 20px' : '140px 20px 60px 20px',
       margin: '0',
-      background: '#ffffff',
+      background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
       position: 'relative',
-      overflow: 'visible',
       width: '100%',
       maxWidth: '100vw',
       boxSizing: 'border-box'
@@ -76,8 +76,6 @@ const Hero: React.FC = () => {
         maxWidth: '1200px',
         width: '100%',
         gap: isMobile ? '25px' : '30px',
-        zIndex: 2,
-        position: 'relative',
         padding: isMobile ? '0 1rem' : '0 2rem',
         textAlign: 'center'
       }}>
@@ -90,7 +88,7 @@ const Hero: React.FC = () => {
           <h1 style={{
             fontSize: isMobile ? '2.5rem' : isTablet ? '3.5rem' : '4.5rem',
             marginBottom: '10px',
-            color: '#333',
+            color: '#fff',
             fontWeight: '600',
             lineHeight: '1.2',
             textAlign: 'center'
@@ -100,7 +98,7 @@ const Hero: React.FC = () => {
 
           <p style={{
             fontSize: isMobile ? '1.25rem' : isTablet ? '1.6rem' : '1.9rem',
-            color: '#666',
+            color: '#f0f0f0',
             marginBottom: '35px',
             textAlign: 'center'
           }}>
@@ -109,17 +107,6 @@ const Hero: React.FC = () => {
               fontWeight: '600'
             }}>{currentText}</span>
           </p>
-          
-          <style>{`
-            @keyframes blink {
-              0%, 50% { opacity: 1; }
-              51%, 100% { opacity: 0; }
-            }
-            @keyframes pulse {
-              0%, 100% { transform: scale(1); opacity: 0.7; }
-              50% { transform: scale(1.1); opacity: 0.3; }
-            }
-          `}</style>
 
           <div style={{
             display: 'flex',

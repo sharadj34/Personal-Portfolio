@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
               alignItems: 'center',
               gap: isMobile ? '5px' : '10px'
             }}>
-              <strong style={{ color: '#333', fontSize: '1.1rem' }}>📧 Email:</strong>
+              <strong style={{ color: '#333', fontSize: '1.1rem' }}>Email:</strong>
               <span style={{ color: '#666', fontSize: '1rem' }}>{contactInfo.email}</span>
             </div>
             <div style={{
@@ -296,7 +296,7 @@ const Contact: React.FC = () => {
               alignItems: 'center',
               gap: isMobile ? '5px' : '10px'
             }}>
-              <strong style={{ color: '#333', fontSize: '1.1rem' }}>📍 Location:</strong>
+              <strong style={{ color: '#333', fontSize: '1.1rem' }}>Location:</strong>
               <span style={{ color: '#666', fontSize: '1rem' }}>Jhansi, India</span>
             </div>
           </div>

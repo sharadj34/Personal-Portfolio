@@ -53,13 +53,13 @@ const NewNavigation: React.FC = () => {
   };
 
   const navigationItems = [
-    { name: 'Home', id: 'hero', icon: '🏠' },
-    { name: 'About', id: 'about', icon: '👤' },
-    { name: 'Skills', id: 'skills', icon: '💼' },
-    { name: 'Education', id: 'education', icon: '🎓' },
-    { name: 'Experience', id: 'experience', icon: '💻' },
-    { name: 'Projects', id: 'projects', icon: '🚀' },
-    { name: 'Contact', id: 'contact', icon: '📞' }
+    { name: 'Home', id: 'hero' },
+    { name: 'About', id: 'about' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Education', id: 'education' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Contact', id: 'contact' }
   ];
 
   return (
@@ -244,14 +244,6 @@ const NewNavigation: React.FC = () => {
                   e.currentTarget.style.transform = 'translateX(0)';
                 }}
               >
-                <span style={{
-                  fontSize: '1.2rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '24px',
-                  height: '24px'
-                }}>{item.icon}</span>
                 <span style={{
                   flex: 1,
                   fontSize: '1rem',
