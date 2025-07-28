@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import heroGif from '../assets/hero_gif.gif';
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -56,15 +55,15 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" style={{
-      height: '100vh',
+      minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: isMobile ? '100px 20px 80px 20px' : '120px 20px 80px 20px',
+      padding: isMobile ? '120px 20px 60px 20px' : '140px 20px 60px 20px',
       margin: '0',
       background: '#ffffff',
       position: 'relative',
-      overflow: 'hidden',
+      overflow: 'visible',
       width: '100%',
       maxWidth: '100vw',
       boxSizing: 'border-box'
@@ -82,38 +81,6 @@ const Hero: React.FC = () => {
         padding: isMobile ? '0 1rem' : '0 2rem',
         textAlign: 'center'
       }}>
-        {/* Avatar */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: isMobile ? '30px' : '40px',
-          marginBottom: isMobile ? '15px' : '20px'
-        }}>
-          <div style={{
-            width: isMobile ? '240px' : '320px',
-            height: isMobile ? '240px' : '320px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-            position: 'relative',
-            overflow: 'hidden',
-            marginTop: isMobile ? '0' : '-400px',
-          }}>
-            <img 
-              src={heroGif} 
-              alt="Avatar" 
-              style={{
-                width: isMobile ? '240px' : '320px',
-                height: isMobile ? '240px' : '320px',
-                borderRadius: '50%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-        </div>
 
         {/* Content */}
         <div style={{
