@@ -33,7 +33,7 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" style={{
       padding: isMobile ? '40px 15px' : '50px 20px',
-      backgroundColor: 'white',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       textAlign: 'center',
       width: '100%',
       maxWidth: '100vw',
@@ -44,7 +44,7 @@ const Experience: React.FC = () => {
         <h2 style={{
           fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '20px',
-          color: '#333',
+          color: 'white',
           fontWeight: 'bold'
         }}>Work Experience</h2>
 

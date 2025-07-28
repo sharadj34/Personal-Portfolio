@@ -93,17 +93,6 @@ const NewNavigation: React.FC = () => {
             fontWeight: 'bold',
             color: '#2c3e50'
           }}>
-            <img 
-              src="/favcon.png" 
-              alt="Logo" 
-              style={{
-                width: isMobile ? '35px' : '40px',
-                height: isMobile ? '35px' : '40px',
-                borderRadius: '8px',
-                marginRight: '12px',
-                objectFit: 'cover'
-              }}
-            />
             Sharad Jha
           </div>
           
@@ -207,16 +196,17 @@ const NewNavigation: React.FC = () => {
             position: 'absolute',
             top: '80px',
             right: '15px',
-            backgroundColor: 'white',
-            borderRadius: '15px',
-            padding: '1.5rem',
-            width: '280px',
+            backgroundColor: 'rgba(255, 255, 255, 0.98)',
+            backdropFilter: 'blur(20px)',
+            borderRadius: '20px',
+            padding: '1rem',
+            width: '300px',
             maxHeight: 'calc(100vh - 100px)',
             overflowY: 'auto',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 8px 25px rgba(0,0,0,0.1)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             display: 'flex',
-            flexDirection: 'column',
-            gap: '0.8rem'
+            flexDirection: 'column'
           }}
           onClick={(e) => e.stopPropagation()}
           >
@@ -225,49 +215,88 @@ const NewNavigation: React.FC = () => {
                 key={index}
                 onClick={() => scrollToSection(item.id)}
                 style={{
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  background: 'transparent',
                   border: 'none',
-                  color: 'white',
+                  color: '#2c3e50',
                   cursor: 'pointer',
-                  fontSize: '1.1rem',
-                  fontWeight: 'bold',
-                  padding: '15px 20px',
+                  fontSize: '1rem',
+                  fontWeight: '500',
+                  padding: '16px 20px',
                   width: '100%',
-                  textAlign: 'center',
-                  borderRadius: '10px',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)'
+                  textAlign: 'left',
+                  borderRadius: '12px',
+                  transition: 'all 0.2s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  marginBottom: index === navigationItems.length - 1 ? '0' : '2px'
                 }}
                 onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.4)';
+                  e.currentTarget.style.backgroundColor = 'rgba(102, 126, 234, 0.08)';
+                  e.currentTarget.style.color = '#667eea';
+                  e.currentTarget.style.transform = 'translateX(8px)';
                 }}
                 onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.3)';
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#2c3e50';
+                  e.currentTarget.style.transform = 'translateX(0)';
                 }}
               >
-                {item.name}
+                <span style={{
+                  fontSize: '1.2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '24px',
+                  height: '24px'
+                }}>{item.icon}</span>
+                <span style={{
+                  flex: 1,
+                  fontSize: '1rem',
+                  fontWeight: '500'
+                }}>{item.name}</span>
+                <span style={{
+                  fontSize: '0.8rem',
+                  opacity: 0.5,
+                  transform: 'translateX(-5px)',
+                  transition: 'all 0.2s ease'
+                }}>→</span>
               </button>
             ))}
+            
+            <div style={{
+              height: '1px',
+              backgroundColor: 'rgba(0,0,0,0.1)',
+              margin: '12px 0'
+            }}></div>
             
             <button
               onClick={() => setIsMenuOpen(false)}
               style={{
-                background: 'none',
-                border: '2px solid #ccc',
+                background: 'transparent',
+                border: 'none',
                 color: '#666',
                 cursor: 'pointer',
-                fontSize: '1rem',
-                fontWeight: 'bold',
-                padding: '10px 20px',
+                fontSize: '0.9rem',
+                fontWeight: '500',
+                padding: '12px 20px',
                 width: '100%',
                 textAlign: 'center',
-                borderRadius: '10px',
-                marginTop: '1rem'
+                borderRadius: '12px',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.05)';
+                e.currentTarget.style.color = '#333';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#666';
               }}
             >
-              Close Menu
+              ✕ Close
             </button>
           </div>
         </div>

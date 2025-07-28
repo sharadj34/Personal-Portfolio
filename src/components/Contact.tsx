@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" style={{
       padding: isMobile ? '40px 15px' : '50px 20px',
-      backgroundColor: 'white',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       textAlign: 'center',
       width: '100%',
       maxWidth: '100vw',
@@ -94,14 +94,14 @@ const Contact: React.FC = () => {
         <h2 style={{
           fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '20px',
-          color: '#333',
+          color: 'white',
           fontWeight: 'bold'
         }}>Get in Touch</h2>
         
         <p style={{
           fontSize: '1.1rem',
-          color: '#666',
-          marginBottom: '10px'
+          color: 'rgba(255, 255, 255, 0.9)',
+          marginBottom: '30px'
         }}>I'd love to hear from you! Feel free to send me a message using the form below.</p>
 
         {/* Contact Form */}
@@ -263,29 +263,41 @@ const Contact: React.FC = () => {
           backgroundColor: '#f8f9fa',
           padding: isMobile ? '20px' : '30px',
           borderRadius: '15px',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '40px'
         }}>
           <h3 style={{
             color: '#667eea',
             fontSize: isMobile ? '1.3rem' : '1.5rem',
-            marginBottom: '10px',
+            marginBottom: '20px',
             textAlign: 'center'
           }}>Contact Info</h3>
           
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-            gap: '10px',
-            textAlign: isMobile ? 'center' : 'left'
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: isMobile ? '15px' : '40px',
+            textAlign: 'center'
           }}>
-            <div>
+            <div style={{
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: 'center',
+              gap: isMobile ? '5px' : '10px'
+            }}>
               <strong style={{ color: '#333', fontSize: '1.1rem' }}>📧 Email:</strong>
-              <span style={{ color: '#666', marginLeft: '10px', fontSize: '1rem' }}>{contactInfo.email}</span>
+              <span style={{ color: '#666', fontSize: '1rem' }}>{contactInfo.email}</span>
             </div>
-            <div>
+            <div style={{
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: 'center',
+              gap: isMobile ? '5px' : '10px'
+            }}>
               <strong style={{ color: '#333', fontSize: '1.1rem' }}>📍 Location:</strong>
-              <span style={{ color: '#666', marginLeft: '10px', fontSize: '1rem' }}>Jhansi, India</span>
+              <span style={{ color: '#666', fontSize: '1rem' }}>Jhansi, India</span>
             </div>
           </div>
         </div>
@@ -293,13 +305,13 @@ const Contact: React.FC = () => {
         <footer style={{
           marginTop: '60px',
           padding: '20px 0',
-          borderTop: '2px solid #e9ecef',
-          color: '#666',
+          borderTop: '2px solid rgba(255, 255, 255, 0.3)',
+          color: 'rgba(255, 255, 255, 0.9)',
           fontSize: '1rem'
         }}>
-          <p>Thank you for visiting my portfolio website. Connect with me over socials.</p>
-          <p style={{ fontWeight: 'bold', color: '#667eea' }}>Keep Rising!</p>
-          <p style={{ fontSize: '0.9rem', marginTop: '20px' }}>
+          <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Thank you for visiting my portfolio website. Connect with me over socials.</p>
+          <p style={{ fontWeight: 'bold', color: '#FFD700' }}>Keep Rising!</p>
+          <p style={{ fontSize: '0.9rem', marginTop: '20px', color: 'rgba(255, 255, 255, 0.8)' }}>
             Designed with ❤️ by Sharad Jha
           </p>
         </footer>
