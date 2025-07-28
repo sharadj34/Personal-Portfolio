@@ -208,7 +208,7 @@ const Hero: React.FC = () => {
                     },
                     { 
                       img: '/assets/twitter.png', 
-                      link: 'https://www.instagram.com/sharad_10.10?igsh=a2llbXNtZXl5YmEx', 
+                      link: 'https://x.com/sharadj34', 
                       alt: 'X' 
                     }
                   ].map((social, index) => (
