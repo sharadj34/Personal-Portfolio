@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navigation from './components/Navigation';
+import NewNavigation from './components/NewNavigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -12,7 +12,7 @@ import Contact from './components/Contact';
 function App() {
   return (
     <div className="App">
-      <Navigation />
+      <NewNavigation />
       <Hero />
       <About />
       <Skills />

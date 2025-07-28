@@ -56,14 +56,6 @@ const About: React.FC = () => {
 I’m a tech enthusiast passionate about application development, data analytics, and product management.
 With a background in Computer Science and hands-on experience across full-stack development, data-driven insights, and cross-functional collaboration, I enjoy building products that are both functional and impactful. I thrive in roles where I can blend technical execution with strategic thinking to solve real-world problems.
             </p>
-            <div style={{ marginBottom: '15px' }}>
-              <strong style={{ color: '#333' }}>📧 Email:</strong>
-              <span style={{ color: '#666', marginLeft: '10px' }}>sharad.jha1010@gmail.com</span>
-            </div>
-            <div>
-              <strong style={{ color: '#333' }}>📍 Location:</strong>
-              <span style={{ color: '#666', marginLeft: '10px' }}>Jhansi, India</span>
-            </div>
             <a 
               href="https://docs.google.com/document/d/1piR19w6DzZg1DkrhIC0xWwdHkYnxfeMJj7BYc63ePZw/edit?usp=sharing"
               target="_blank"

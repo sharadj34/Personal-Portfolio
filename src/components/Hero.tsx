@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import heroGif from '../assets/hero_gif.gif';
-import linkedinIcon from '../assets/linkedin.png';
-import githubIcon from '../assets/github.png';
-import leetcodeIcon from '../assets/leetcode.png'; // You'll need to add this icon to assets
-import gmailIcon from '../assets/gmail.png';
-import instagramIcon from '../assets/instagram.png';
-import cvIcon from '../assets/curriculum-vitae.png';
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -309,25 +303,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating chat button (bottom right) */}
-      <div style={{
-        position: 'fixed',
-        bottom: '30px',
-        right: '30px',
-        width: '60px',
-        height: '60px',
-        backgroundColor: '#f39c12',
-        borderRadius: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        cursor: 'pointer',
-        boxShadow: '0 4px 20px rgba(243, 156, 18, 0.4)',
-        zIndex: 1000,
-        fontSize: '1.5rem'
-      }}>
-        💬
-      </div>
     </section>
   );
 };

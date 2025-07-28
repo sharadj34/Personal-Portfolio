@@ -6,8 +6,9 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) {
         setIsMenuOpen(false);
       }
     };
@@ -22,9 +23,32 @@ const Navigation: React.FC = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false); // Close menu after clicking on mobile
+      setIsMenuOpen(false); // Close menu after clicking
     }
   };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const nav = document.getElementById('mobile-nav');
+      const button = document.getElementById('mobile-menu-button');
+      if (nav && button && !nav.contains(event.target as Node) && !button.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav style={{
@@ -74,7 +98,12 @@ const Navigation: React.FC = () => {
         {/* Mobile Menu Toggle */}
         {isMobile && (
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Menu toggle clicked, current state:', isMenuOpen);
+              setIsMenuOpen(!isMenuOpen);
+            }}
             style={{
               background: 'none',
               border: 'none',
@@ -85,9 +114,13 @@ const Navigation: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '30px',
-              height: '30px'
+              width: '40px',
+              height: '40px',
+              padding: '5px',
+              borderRadius: '4px',
+              zIndex: 1001
             }}
+            aria-label="Toggle mobile menu"
           >
             <div style={{
               width: '25px',
@@ -163,15 +196,18 @@ const Navigation: React.FC = () => {
           right: 0,
           backgroundColor: 'rgba(255, 255, 255, 0.98)',
           backdropFilter: 'blur(10px)',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-          zIndex: 999,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+          zIndex: 1002,
           padding: '2rem',
           display: 'flex',
           flexDirection: 'column',
           gap: '1.5rem',
           alignItems: 'center',
           width: '100%',
-          boxSizing: 'border-box'
+          boxSizing: 'border-box',
+          minHeight: 'auto',
+          border: '1px solid rgba(0,0,0,0.1)',
+          borderTop: 'none'
         }}>
           {['Home', 'About', 'Skills', 'Education', 'Experience', 'Projects', 'Contact'].map((item, index) => {
             const sectionIds = ['hero', 'about', 'skills', 'education', 'experience', 'projects', 'contact'];
