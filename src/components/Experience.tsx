@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Experience: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const experiences = [
     {
       role: 'Full Stack Developer',
@@ -20,7 +32,7 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" style={{
-      padding: '80px 20px',
+      padding: isMobile ? '60px 15px' : '80px 20px',
       backgroundColor: 'white',
       textAlign: 'center',
       width: '100%',
@@ -30,7 +42,7 @@ const Experience: React.FC = () => {
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '20px',
           color: '#333',
           fontWeight: 'bold'
@@ -38,55 +50,58 @@ const Experience: React.FC = () => {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '30px'
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(400px, 1fr))',
+          gap: isMobile ? '20px' : '30px'
         }}>
           {experiences.map((exp, index) => (
             <div key={index} style={{
               backgroundColor: '#f8f9fa',
-              padding: '30px',
+              padding: isMobile ? '20px' : '30px',
               borderRadius: '15px',
               boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
-              textAlign: 'left',
+              textAlign: isMobile ? 'center' : 'left',
               border: '2px solid transparent',
               transition: 'all 0.3s ease'
             }}>
               <div style={{
                 display: 'flex',
-                alignItems: 'center',
+                flexDirection: isMobile ? 'column' : 'row',
+                alignItems: isMobile ? 'center' : 'flex-start',
                 marginBottom: '20px'
               }}>
                 <span style={{
-                  fontSize: '2.5rem',
-                  marginRight: '15px'
+                  fontSize: isMobile ? '2rem' : '2.5rem',
+                  marginRight: isMobile ? '0' : '15px',
+                  marginBottom: isMobile ? '10px' : '0'
                 }}>{exp.icon}</span>
                 <div>
                   <h3 style={{
                     color: '#667eea',
-                    fontSize: '1.4rem',
+                    fontSize: isMobile ? '1.2rem' : '1.4rem',
                     margin: '0 0 5px 0',
                     fontWeight: 'bold'
                   }}>{exp.role}</h3>
                   <p style={{
                     color: '#666',
                     margin: 0,
-                    fontSize: '1rem'
+                    fontSize: isMobile ? '0.9rem' : '1rem'
                   }}>{exp.company}</p>
                 </div>
               </div>
 
               <p style={{
                 color: '#666',
-                fontSize: '1.1rem',
-                lineHeight: '1.6'
+                fontSize: isMobile ? '1rem' : '1.1rem',
+                lineHeight: '1.6',
+                marginBottom: isMobile ? '15px' : '0'
               }}>{exp.description}</p>
 
               <span style={{
                 display: 'block',
-                marginTop: '20px',
+                marginTop: isMobile ? '10px' : '20px',
                 color: '#333',
                 fontWeight: 'bold',
-                fontSize: '1rem'
+                fontSize: isMobile ? '0.9rem' : '1rem'
               }}>{exp.duration}</span>
             </div>
           ))}

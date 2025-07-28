@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Skills: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const skills = [
     { name: 'ReactJS', icon: '⚛️', color: '#61DAFB' },
     { name: 'ExpressJS', icon: '🟢', color: '#68A063' },
@@ -24,7 +36,7 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" style={{
-      padding: '80px 20px',
+      padding: isMobile ? '60px 15px' : '80px 20px',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       textAlign: 'center',
       width: '100%',
@@ -41,12 +53,12 @@ const Skills: React.FC = () => {
           marginBottom: '60px'
         }}>
           <span style={{
-            fontSize: '2.5rem',
-            marginRight: '15px',
+            fontSize: isMobile ? '2rem' : '2.5rem',
+            marginRight: isMobile ? '10px' : '15px',
             color: 'white'
           }}>💻</span>
           <h2 style={{
-            fontSize: '3rem',
+            fontSize: isMobile ? '2.2rem' : '3rem',
             margin: '0',
             color: 'white',
             fontWeight: 'bold'
@@ -57,8 +69,8 @@ const Skills: React.FC = () => {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: '20px',
+          gridTemplateColumns: isMobile ? 'repeat(auto-fit, minmax(140px, 1fr))' : 'repeat(auto-fit, minmax(180px, 1fr))',
+          gap: isMobile ? '15px' : '20px',
           maxWidth: '1200px',
           margin: '0 auto'
         }}>
@@ -67,7 +79,7 @@ const Skills: React.FC = () => {
               key={index} 
               style={{
                 backgroundColor: '#1a1a2e',
-                padding: '30px 20px',
+                padding: isMobile ? '20px 15px' : '30px 20px',
                 borderRadius: '15px',
                 boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
                 transition: 'all 0.3s ease',
@@ -86,8 +98,8 @@ const Skills: React.FC = () => {
               }}
             >
               <div style={{
-                fontSize: '3rem',
-                marginBottom: '15px',
+                fontSize: isMobile ? '2.5rem' : '3rem',
+                marginBottom: isMobile ? '10px' : '15px',
                 color: skill.color
               }}>
                 {skill.icon}
@@ -95,7 +107,7 @@ const Skills: React.FC = () => {
               
               <h3 style={{
                 color: 'white',
-                fontSize: '1.2rem',
+                fontSize: isMobile ? '1rem' : '1.2rem',
                 margin: '0',
                 fontWeight: '600'
               }}>

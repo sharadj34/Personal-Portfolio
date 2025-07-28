@@ -101,7 +101,8 @@ const Hero: React.FC = () => {
         {/* Left Content */}
         <div style={{
           flex: 1,
-          textAlign: 'left'
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 2 : 1
         }}>
           <h1 style={{
             fontSize: isMobile ? '2rem' : isTablet ? '3rem' : '4rem',
@@ -187,7 +188,9 @@ const Hero: React.FC = () => {
                 <div style={{
                   marginTop: '40px',
                   display: 'flex',
-                  gap: '15px'
+                  gap: '15px',
+                  justifyContent: isMobile ? 'center' : 'flex-start',
+                  flexWrap: 'wrap'
                 }}>
                   {[
                     { 
@@ -206,7 +209,7 @@ const Hero: React.FC = () => {
                       alt: 'Mail' 
                     }, 
                     { 
-                      img: leetcodeIcon, 
+                      img: '/assets/leetcode.png', 
                       link: 'https://leetcode.com/u/sophisticated89/', 
                       alt: 'LeetCode' 
                     },
@@ -254,14 +257,15 @@ const Hero: React.FC = () => {
 
         {/* Right Content - Avatar */}
         <div style={{
-          flex: 1,
+          flex: isMobile ? '0 0 auto' : 1,
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          order: isMobile ? 1 : 2
         }}>
           <div style={{
-            width: isMobile ? '350px' : '450px',
-            height: isMobile ? '350px' : '450px',
+            width: isMobile ? '280px' : '450px',
+            height: isMobile ? '280px' : '450px',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -275,8 +279,8 @@ const Hero: React.FC = () => {
               src={heroGif} 
               alt="Avatar" 
               style={{
-                width: isMobile ? '350px' : '450px',
-                height: isMobile ? '350px' : '450px',
+                width: isMobile ? '280px' : '450px',
+                height: isMobile ? '280px' : '450px',
                 borderRadius: '50%',
                 objectFit: 'cover'
               }}

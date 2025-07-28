@@ -152,47 +152,61 @@ const Navigation: React.FC = () => {
           </div>
         )}
         
-        {/* Mobile Navigation Links */}
-        {isMobile && isMenuOpen && (
-          <div style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'white',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-            zIndex: 999,
-            padding: '1rem 2rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            alignItems: 'flex-start'
-          }}>
-            {['Home', 'About', 'Skills', 'Education', 'Experience', 'Projects', 'Contact'].map((item, index) => {
-              const sectionIds = ['hero', 'about', 'skills', 'education', 'experience', 'projects', 'contact'];
-              return (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(sectionIds[index])}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#667eea',
-                    cursor: 'pointer',
-                    fontSize: '1rem',
-                    fontWeight: 'bold',
-                    padding: '0.5rem 0',
-                    width: '100%',
-                    textAlign: 'left'
-                  }}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-        )}
       </div>
+      
+      {/* Mobile Navigation Links */}
+      {isMobile && isMenuOpen && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          right: 0,
+          backgroundColor: 'rgba(255, 255, 255, 0.98)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          zIndex: 999,
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          alignItems: 'center',
+          width: '100%',
+          boxSizing: 'border-box'
+        }}>
+          {['Home', 'About', 'Skills', 'Education', 'Experience', 'Projects', 'Contact'].map((item, index) => {
+            const sectionIds = ['hero', 'about', 'skills', 'education', 'experience', 'projects', 'contact'];
+            return (
+              <button
+                key={index}
+                onClick={() => scrollToSection(sectionIds[index])}
+                style={{
+                  background: 'none',
+                  border: '2px solid #667eea',
+                  color: '#667eea',
+                  cursor: 'pointer',
+                  fontSize: '1.1rem',
+                  fontWeight: 'bold',
+                  padding: '12px 24px',
+                  width: '100%',
+                  textAlign: 'center',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#667eea';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#667eea';
+                }}
+              >
+                {item}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 };

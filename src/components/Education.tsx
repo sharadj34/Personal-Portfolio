@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Education: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const education = [
     {
       institution: 'VIT Bhopal University, Bhopal, IND',
@@ -33,7 +45,7 @@ const Education: React.FC = () => {
 
   return (
     <section id="education" style={{
-      padding: '80px 20px',
+      padding: isMobile ? '60px 15px' : '80px 20px',
       backgroundColor: '#f8f9fa',
       textAlign: 'center',
       width: '100%',
@@ -43,7 +55,7 @@ const Education: React.FC = () => {
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '20px',
           color: '#333',
           fontWeight: 'bold'
@@ -61,21 +73,23 @@ const Education: React.FC = () => {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '30px',
+          gap: isMobile ? '20px' : '30px',
           maxWidth: '800px',
           margin: '0 auto'
         }}>
           {education.map((edu, index) => (
             <div key={index} style={{
               backgroundColor: 'white',
-              padding: '25px',
+              padding: isMobile ? '20px' : '25px',
               borderRadius: '12px',
               boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
               display: 'flex',
-              alignItems: 'center',
-              gap: '20px',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: isMobile ? 'flex-start' : 'center',
+              gap: isMobile ? '15px' : '20px',
               transition: 'all 0.3s ease',
-              border: '1px solid #e0e0e0'
+              border: '1px solid #e0e0e0',
+              textAlign: isMobile ? 'center' : 'left'
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.boxShadow = '0 5px 20px rgba(0,0,0,0.15)';
@@ -89,11 +103,12 @@ const Education: React.FC = () => {
               {/* Institution Logo */}
               <div style={{
                 flexShrink: 0,
-                width: '80px',
-                height: '80px',
+                width: isMobile ? '60px' : '80px',
+                height: isMobile ? '60px' : '80px',
                 borderRadius: '12px',
                 overflow: 'hidden',
-                border: '2px solid #f0f0f0'
+                border: '2px solid #f0f0f0',
+                alignSelf: isMobile ? 'center' : 'flex-start'
               }}>
                 <img 
                   src={edu.image} 
@@ -107,10 +122,10 @@ const Education: React.FC = () => {
               </div>
 
               {/* Institution Details */}
-              <div style={{ flex: 1, textAlign: 'left' }}>
+              <div style={{ flex: 1, textAlign: isMobile ? 'center' : 'left' }}>
                 <h3 style={{
                   color: '#6B73FF',
-                  fontSize: '1.4rem',
+                  fontSize: isMobile ? '1.2rem' : '1.4rem',
                   margin: '0 0 8px 0',
                   fontWeight: '600'
                 }}>
@@ -135,7 +150,7 @@ const Education: React.FC = () => {
 
               {/* Duration and Status */}
               <div style={{
-                textAlign: 'right',
+                textAlign: isMobile ? 'center' : 'right',
                 flexShrink: 0
               }}>
                 <div style={{

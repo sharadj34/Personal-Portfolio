@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import pfp from '../assets/pfp.jpg';
 
 const About: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <section id="about" style={{
       padding: '80px 20px',
@@ -14,7 +26,7 @@ const About: React.FC = () => {
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '40px',
           color: '#333',
           fontWeight: 'bold'
@@ -22,18 +34,19 @@ const About: React.FC = () => {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '40px',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: isMobile ? '30px' : '40px',
           alignItems: 'center'
         }}>
           <div style={{
             textAlign: 'left',
             backgroundColor: 'white',
-            padding: '30px',
+            padding: isMobile ? '20px' : '30px',
             borderRadius: '10px',
-            boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
+            boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+            order: isMobile ? 2 : 1
           }}>
-            <h3 style={{ color: '#667eea', fontSize: '1.8rem', marginBottom: '20px' }}>Sharad Jha</h3>
+            <h3 style={{ color: '#667eea', fontSize: isMobile ? '1.5rem' : '1.8rem', marginBottom: '20px' }}>Sharad Jha</h3>
             <p style={{
               color: '#666',
               fontSize: '1.1rem',
@@ -85,11 +98,12 @@ With a background in Computer Science and hands-on experience across full-stack 
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            order: isMobile ? 1 : 2
           }}>
             <div style={{
-              width: '320px',
-              height: '320px',
+              width: isMobile ? '250px' : '320px',
+              height: isMobile ? '250px' : '320px',
               borderRadius: '50%',
               overflow: 'hidden',
               boxShadow: '0 10px 30px rgba(0,0,0,0.2)'

@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Contact: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const contactInfo = {
-    email: 'your.email@example.com',
-    linkedin: 'https://linkedin.com/in/yourprofile',
-    github: 'https://github.com/yourusername',
+    email: 'sharad.jha1010@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/sharadj34/',
+    github: 'https://github.com/sharadj34',
     twitter: 'https://twitter.com/yourusername'
   };
 
   return (
     <section id="contact" style={{
-      padding: '80px 20px',
+      padding: isMobile ? '60px 15px' : '80px 20px',
       backgroundColor: 'white',
       textAlign: 'center',
       width: '100%',
@@ -20,7 +32,7 @@ const Contact: React.FC = () => {
     }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: isMobile ? '2rem' : '2.5rem',
           marginBottom: '20px',
           color: '#333',
           fontWeight: 'bold'
@@ -34,7 +46,7 @@ const Contact: React.FC = () => {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '20px',
           marginBottom: '40px'
         }}>
@@ -45,9 +57,9 @@ const Contact: React.FC = () => {
             backgroundColor: '#667eea',
             color: 'white',
             textDecoration: 'none',
-            padding: '15px 25px',
+            padding: isMobile ? '12px 20px' : '15px 25px',
             borderRadius: '10px',
-            fontSize: '1.1rem',
+            fontSize: isMobile ? '1rem' : '1.1rem',
             fontWeight: 'bold',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease'
           }}>
@@ -109,21 +121,21 @@ const Contact: React.FC = () => {
 
         <div style={{
           backgroundColor: '#f8f9fa',
-          padding: '30px',
+          padding: isMobile ? '20px' : '30px',
           borderRadius: '15px',
           textAlign: 'left',
           marginTop: '40px'
         }}>
           <h3 style={{
             color: '#667eea',
-            fontSize: '1.5rem',
+            fontSize: isMobile ? '1.3rem' : '1.5rem',
             marginBottom: '20px',
             textAlign: 'center'
           }}>Contact Info</h3>
           
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '20px'
           }}>
             <div>
@@ -136,7 +148,7 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <strong style={{ color: '#333' }}>📍 Location:</strong>
-              <span style={{ color: '#666', marginLeft: '10px' }}>Your City, Country</span>
+              <span style={{ color: '#666', marginLeft: '10px' }}>Jhansi, India</span>
             </div>
           </div>
         </div>
@@ -151,7 +163,7 @@ const Contact: React.FC = () => {
           <p>Thank you for visiting my portfolio website. Connect with me over socials.</p>
           <p style={{ fontWeight: 'bold', color: '#667eea' }}>Keep Rising 🚀</p>
           <p style={{ fontSize: '0.9rem', marginTop: '20px' }}>
-            Designed with ❤️ by Your Name
+            Designed with ❤️ by Sharad Jha
           </p>
         </footer>
       </div>
