@@ -45,7 +45,7 @@ const Education: React.FC = () => {
 
   return (
     <section id="education" style={{
-      padding: isMobile ? '60px 15px' : '80px 20px',
+      padding: isMobile ? '40px 15px' : '50px 20px',
       backgroundColor: '#f8f9fa',
       textAlign: 'center',
       width: '100%',
@@ -85,7 +85,7 @@ const Education: React.FC = () => {
               boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
               display: 'flex',
               flexDirection: isMobile ? 'column' : 'row',
-              alignItems: isMobile ? 'flex-start' : 'center',
+              alignItems: isMobile ? 'center' : 'center',
               gap: isMobile ? '15px' : '20px',
               transition: 'all 0.3s ease',
               border: '1px solid #e0e0e0',
@@ -150,14 +150,17 @@ const Education: React.FC = () => {
 
               {/* Duration and Status */}
               <div style={{
-                textAlign: isMobile ? 'center' : 'right',
-                flexShrink: 0
+                textAlign: 'center',
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '8px'
               }}>
                 <div style={{
                   color: '#333',
                   fontWeight: 'bold',
-                  fontSize: '1rem',
-                  marginBottom: '8px'
+                  fontSize: '1rem'
                 }}>
                   {edu.duration}
                 </div>
@@ -167,7 +170,8 @@ const Education: React.FC = () => {
                   padding: '6px 16px',
                   borderRadius: '20px',
                   fontSize: '0.85rem',
-                  fontWeight: '500'
+                  fontWeight: '500',
+                  display: 'inline-block'
                 }}>
                   {edu.status}
                 </span>

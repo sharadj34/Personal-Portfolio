@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" style={{
-      padding: isMobile ? '60px 15px' : '80px 20px',
+      padding: isMobile ? '40px 15px' : '50px 20px',
       backgroundColor: 'white',
       textAlign: 'center',
       width: '100%',
@@ -101,14 +101,13 @@ const Contact: React.FC = () => {
         <p style={{
           fontSize: '1.1rem',
           color: '#666',
-          marginBottom: '50px'
+          marginBottom: '10px'
         }}>I'd love to hear from you! Feel free to send me a message using the form below.</p>
-
 
         {/* Contact Form */}
         <form onSubmit={handleSubmit} style={{
           maxWidth: '800px',
-          margin: '40px auto 0 auto',
+          margin: '20px auto 0 auto',
           backgroundColor: '#f8f9fa',
           padding: isMobile ? '25px' : '40px',
           borderRadius: '15px',
@@ -270,14 +269,14 @@ const Contact: React.FC = () => {
           <h3 style={{
             color: '#667eea',
             fontSize: isMobile ? '1.3rem' : '1.5rem',
-            marginBottom: '20px',
+            marginBottom: '10px',
             textAlign: 'center'
           }}>Contact Info</h3>
           
           <div style={{
             display: 'grid',
             gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-            gap: '30px',
+            gap: '10px',
             textAlign: isMobile ? 'center' : 'left'
           }}>
             <div>
@@ -299,7 +298,7 @@ const Contact: React.FC = () => {
           fontSize: '1rem'
         }}>
           <p>Thank you for visiting my portfolio website. Connect with me over socials.</p>
-          <p style={{ fontWeight: 'bold', color: '#667eea' }}>Keep Rising 🚀</p>
+          <p style={{ fontWeight: 'bold', color: '#667eea' }}>Keep Rising!</p>
           <p style={{ fontSize: '0.9rem', marginTop: '20px' }}>
             Designed with ❤️ by Sharad Jha
           </p>

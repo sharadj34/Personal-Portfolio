@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '80px 20px 0 20px',
+      padding: isMobile ? '100px 20px 80px 20px' : '120px 20px 80px 20px',
       margin: '0',
       background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
       position: 'relative',
@@ -173,8 +173,7 @@ const Hero: React.FC = () => {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            About Me 
-            <span style={{ fontSize: '1rem' }}>⬇️</span>
+            About Me
           </button>
           </div>
 
@@ -258,23 +257,24 @@ const Hero: React.FC = () => {
           order: isMobile ? 1 : 2
         }}>
           <div style={{
-            width: isMobile ? '280px' : '450px',
-            height: isMobile ? '280px' : '450px',
+            width: isMobile ? '240px' : '380px',
+            height: isMobile ? '240px' : '380px',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 20px 50px rgba(0,0,0,0.2)',
             position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            marginTop: isMobile ? '40px' : '0'
           }}>
             {/* Avatar GIF */}
             <img 
               src={heroGif} 
               alt="Avatar" 
               style={{
-                width: isMobile ? '280px' : '450px',
-                height: isMobile ? '280px' : '450px',
+                width: isMobile ? '240px' : '380px',
+                height: isMobile ? '240px' : '380px',
                 borderRadius: '50%',
                 objectFit: 'cover'
               }}

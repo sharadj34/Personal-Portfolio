@@ -15,24 +15,24 @@ const Experience: React.FC = () => {
   }, []);
   const experiences = [
     {
-      role: 'Full Stack Developer',
-      company: 'Your Company Name',
-      duration: 'Oct 2021 - Present',
-      description: 'Working on web applications and solutions using the MERN stack.',
-      icon: '💼'
+      role: 'Salesforce Developement Intern',
+      company: 'SmartInternz',
+      duration: 'Nov 2024 - Jan 2025',
+      description: 'Built Salesforce apps, learned CRM workflows, developed custom Lightning components.',
+      icon: <img src="/assets/smartinternz.jpg" alt="Icon" style={{ width: '50px', height: '50px' }} />
     },
     {
-      role: 'Web Developer Intern',
-      company: 'Another Company',
-      duration: 'June 2021 - Dec 2021',
-      description: 'Built and maintained several website projects.',
-      icon: '🌐'
+      role: 'Founder & President',
+      company: 'iOS Club, VIT Bhopal university',
+      duration: 'Sept 2022 - Sept 2023',
+      description: 'Organized workshops, led team, built developer community, promoted app development.',
+      icon: <img src="/assets/iosclub.jpg" alt="Icon" style={{ width: '50px', height: '50px' }} />
     }
   ];
 
   return (
     <section id="experience" style={{
-      padding: isMobile ? '60px 15px' : '80px 20px',
+      padding: isMobile ? '40px 15px' : '50px 20px',
       backgroundColor: 'white',
       textAlign: 'center',
       width: '100%',
@@ -66,25 +66,41 @@ const Experience: React.FC = () => {
               <div style={{
                 display: 'flex',
                 flexDirection: isMobile ? 'column' : 'row',
-                alignItems: isMobile ? 'center' : 'flex-start',
-                marginBottom: '20px'
+                alignItems: isMobile ? 'center' : 'center',
+                marginBottom: '20px',
+                gap: isMobile ? '10px' : '15px'
               }}>
-                <span style={{
-                  fontSize: isMobile ? '2rem' : '2.5rem',
-                  marginRight: isMobile ? '0' : '15px',
-                  marginBottom: isMobile ? '10px' : '0'
-                }}>{exp.icon}</span>
-                <div>
+                <div style={{
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  {React.cloneElement(exp.icon as React.ReactElement<any>, {
+                    style: {
+                      width: isMobile ? '45px' : '50px',
+                      height: isMobile ? '45px' : '50px',
+                      borderRadius: '8px',
+                      objectFit: 'cover'
+                    }
+                  } as React.Attributes)}
+                </div>
+                <div style={{
+                  flex: 1,
+                  textAlign: isMobile ? 'center' : 'left'
+                }}>
                   <h3 style={{
                     color: '#667eea',
                     fontSize: isMobile ? '1.2rem' : '1.4rem',
                     margin: '0 0 5px 0',
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    lineHeight: '1.2'
                   }}>{exp.role}</h3>
                   <p style={{
                     color: '#666',
                     margin: 0,
-                    fontSize: isMobile ? '0.9rem' : '1rem'
+                    fontSize: isMobile ? '0.9rem' : '1rem',
+                    lineHeight: '1.4'
                   }}>{exp.company}</p>
                 </div>
               </div>

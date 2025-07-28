@@ -53,13 +53,13 @@ const NewNavigation: React.FC = () => {
   };
 
   const navigationItems = [
-    { name: '🏠 Home', id: 'hero', icon: '🏠' },
-    { name: '👤 About', id: 'about', icon: '👤' },
-    { name: '💼 Skills', id: 'skills', icon: '💼' },
-    { name: '🎓 Education', id: 'education', icon: '🎓' },
-    { name: '💻 Experience', id: 'experience', icon: '💻' },
-    { name: '🚀 Projects', id: 'projects', icon: '🚀' },
-    { name: '📞 Contact', id: 'contact', icon: '📞' }
+    { name: 'Home', id: 'hero', icon: '🏠' },
+    { name: 'About', id: 'about', icon: '👤' },
+    { name: 'Skills', id: 'skills', icon: '💼' },
+    { name: 'Education', id: 'education', icon: '🎓' },
+    { name: 'Experience', id: 'experience', icon: '💻' },
+    { name: 'Projects', id: 'projects', icon: '🚀' },
+    { name: 'Contact', id: 'contact', icon: '📞' }
   ];
 
   return (
@@ -199,37 +199,27 @@ const NewNavigation: React.FC = () => {
           right: 0,
           bottom: 0,
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          zIndex: 999,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
+          zIndex: 999
         }}
         onClick={() => setIsMenuOpen(false)}
         >
           <div style={{
+            position: 'absolute',
+            top: '80px',
+            right: '15px',
             backgroundColor: 'white',
             borderRadius: '15px',
-            padding: '2rem',
-            margin: '2rem',
-            width: '90%',
-            maxWidth: '400px',
+            padding: '1.5rem',
+            width: '280px',
+            maxHeight: 'calc(100vh - 100px)',
+            overflowY: 'auto',
             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: '0.8rem'
           }}
           onClick={(e) => e.stopPropagation()}
           >
-            <h3 style={{
-              color: '#667eea',
-              fontSize: '1.5rem',
-              marginBottom: '1rem',
-              textAlign: 'center',
-              margin: '0 0 1rem 0'
-            }}>
-              Navigation Menu
-            </h3>
-            
             {navigationItems.map((item, index) => (
               <button
                 key={index}
