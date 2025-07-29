@@ -14,25 +14,28 @@ const Skills: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   const skills = [
-    { name: 'ReactJS', icon: '⚛️', color: '#61DAFB' },
-    { name: 'ExpressJS', icon: '🟢', color: '#68A063' },
-    { name: 'NodeJS', icon: '🟢', color: '#68A063' },
-    { name: 'Redux', icon: '🔄', color: '#764ABC' },
-    { name: 'Firebase', icon: '🔥', color: '#FFCA28' },
-    { name: 'Android', icon: '🤖', color: '#3DDC84' },
-    { name: 'MaterialUI', icon: '🎨', color: '#0081CB' },
-    { name: 'ChakraUI', icon: '⚡', color: '#319795' },
-    { name: 'TailwindCSS', icon: '🌊', color: '#06B6D4' },
-    { name: 'Bootstrap', icon: '🅱️', color: '#7952B3' },
-    { name: 'Sass', icon: '💅', color: '#CC6699' },
-    { name: 'HTML5', icon: '🌐', color: '#E34F26' },
-    { name: 'CSS3', icon: '🎨', color: '#1572B6' },
-    { name: 'JavaScript', icon: '📜', color: '#F7DF1E' },
-    { name: 'Java', icon: '☕', color: '#ED8B00' },
-    { name: 'Kotlin', icon: '🔷', color: '#0095D5' },
-    { name: 'PHP', icon: '🐘', color: '#777BB4' },
-    { name: 'Python', icon: '🐍', color: '#3776AB' }
-  ];
+  { name: 'Python', logo: '/assets/python.png', color: '#3776AB' },
+  { name: 'C++', logo: '/assets/cpp.png', color: '#61DAFB' },
+  { name: 'JavaScript', logo: '/assets/JS.png', color: '#68A063' },
+  { name: 'Flutter', logo: '/assets/flutter.png', color: '#68A063' },
+  { name: 'NodeJS', logo: '/assets/nodejs.png', color: '#764ABC' },
+  { name: 'Firebase', logo: '/assets/firebase.png', color: '#FFCA28' },
+  { name: 'Django', logo: '/assets/django.svg', color: '#3DDC84' },
+  { name: 'MySQL', logo: '/assets/mysql.png', color: '#0081CB' },
+  { name: 'PostgreSQL', logo: '/assets/postgre.png', color: '#319795' },
+  { name: 'AWS', logo: '/assets/aws.png', color: '#06B6D4' },
+  { name: 'Tableau', logo: '/assets/tableau.png', color: '#7952B3' },
+  { name: 'Power BI', logo: '/assets/powerbi.png', color: '#CC6699' },
+  { name: 'Excel', logo: '/assets/excel.png', color: '#E34F26' },
+  { name: 'Git', logo: '/assets/git.png', color: '#1572B6' },
+  { name: 'Figma', logo: '/assets/figma.png', color: '#F7DF1E' },
+  { name: 'Canva', logo: '/assets/canva.png', color: '#ED8B00' },
+  { name: 'Notion', logo: '/assets/notion.png', color: '#0095D5' },
+  { name: 'Google Analytics', logo: '/assets/googlea.webp', color: '#777BB4' },
+  { name: 'Google Tag Manager', logo: '/assets/googletag.svg', color: '#777BB4' },
+  { name: 'Postman', logo: '/assets/postman.webp', color: '#777BB4' },
+  { name: 'Vercel', logo: '/assets/vercel.png', color: '#0095D5' }
+];
 
   return (
     <section id="skills" style={{
@@ -102,7 +105,7 @@ const Skills: React.FC = () => {
                 marginBottom: isMobile ? '10px' : '15px',
                 color: skill.color
               }}>
-                {skill.icon}
+                <img src={skill.logo} alt={skill.name} style={{ width: '75px', height: '75px', objectFit: 'contain' }} />
               </div>
               
               <h3 style={{
