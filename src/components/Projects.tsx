@@ -25,25 +25,25 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       title: 'RideRio',
-      description: 'A full-stack e-commerce platform built with MERN stack featuring user authentication, payment integration, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+      description: 'RideRio is a self-drive car rental app that allows users to conveniently rent cars for personal use, offering flexible booking, affordable pricing, and a wide range of vehicles.',
+      technologies: ['Flutter', 'Firebase', 'Dart'],
       category: 'Application Development',
-      link: 'https://github.com/yourusername/ecommerce'
+      link: 'https://github.com/sharadj34/RideRio'
     },
     {
       title: 'Rise and Shine',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      technologies: ['React', 'TypeScript', 'Firebase', 'Material-UI'],
+      description: 'Rise and Shine is a Flutter-based event management and social engagement app with login, feed, notifications, post sharing, comments, image uploads, and a vibrant UI using Provider and gradients.',
+      technologies: ['Flutter', 'Firebase', 'Dart'],
       category: 'Application Development',
-      link: 'https://github.com/yourusername/taskmanager'
+      link: 'https://github.com/sharadj34/Rise-And-Shine'
     },
     {
       title: 'Urban Heat - Correlation with Population',
-      description: 'A comprehensive analytics dashboard that visualizes sales data trends, customer insights, and business performance metrics.',
-      technologies: ['Python', 'Pandas', 'Matplotlib', 'Jupyter'],
+      description: 'Built a NetLogo simulation to analyze the impact of urbanization on temperature using real-world datasets (1995–2024), modeling factors like population growth, land use, pollution, and vegetation.Processed and visualized 30 years of geospatial and environmental data (e.g., LST, population density, built-up area) to study Urban Heat Island (UHI) patterns in Delhi.',
+      technologies: ['Python', 'NetLogo', 'Excel', 'Regression Analysis'],
       category: 'Data Analytics',
-      link: 'https://github.com/yourusername/sales-analytics'
-    },
+      link: 'https://github.com/sharadj34/Urban-Heat-Correlation-with-Population'
+    }
   ];
 
   const [category, setCategory] = useState<'Application Development' | 'Data Analytics' | 'Product Management' | 'Others' | 'All'>('All');
