@@ -24,47 +24,26 @@ const Projects: React.FC = () => {
   }, []);
   const projects: Project[] = [
     {
-      title: 'E-Commerce Website',
+      title: 'RideRio',
       description: 'A full-stack e-commerce platform built with MERN stack featuring user authentication, payment integration, and admin dashboard.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       category: 'Application Development',
       link: 'https://github.com/yourusername/ecommerce'
     },
     {
-      title: 'Task Management App',
+      title: 'Rise and Shine',
       description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
       technologies: ['React', 'TypeScript', 'Firebase', 'Material-UI'],
       category: 'Application Development',
       link: 'https://github.com/yourusername/taskmanager'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather application that provides current weather conditions and forecasts using external APIs.',
-      technologies: ['JavaScript', 'HTML/CSS', 'Weather API', 'Chart.js'],
-      category: 'Application Development',
-      link: 'https://github.com/yourusername/weather-app'
-    },
-    {
-      title: 'Sales Data Analytics',
+      title: 'Urban Heat - Correlation with Population',
       description: 'A comprehensive analytics dashboard that visualizes sales data trends, customer insights, and business performance metrics.',
       technologies: ['Python', 'Pandas', 'Matplotlib', 'Jupyter'],
       category: 'Data Analytics',
       link: 'https://github.com/yourusername/sales-analytics'
     },
-    {
-      title: 'Customer Behavior Analysis',
-      description: 'Machine learning project analyzing customer behavior patterns to predict purchasing decisions and optimize marketing strategies.',
-      technologies: ['Python', 'Scikit-learn', 'Seaborn', 'SQL'],
-      category: 'Data Analytics',
-      link: 'https://github.com/yourusername/customer-analysis'
-    },
-    {
-      title: 'Product Roadmap Tool',
-      description: 'A strategic planning tool for product managers to create, manage, and visualize product roadmaps with stakeholder collaboration.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'D3.js'],
-      category: 'Product Management',
-      link: 'https://github.com/yourusername/roadmap-tool'
-    }
   ];
 
   const [category, setCategory] = useState<'Application Development' | 'Data Analytics' | 'Product Management' | 'Others' | 'All'>('All');
