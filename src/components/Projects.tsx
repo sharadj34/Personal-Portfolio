@@ -223,24 +223,29 @@ const Projects: React.FC = () => {
           </div>
         )}
         
-        <button style={{
-          marginTop: '40px',
-          padding: '15px 30px',
-          backgroundColor: '#667eea',
-          color: 'white',
-          border: 'none',
-          borderRadius: '8px',
-          fontSize: '1.1rem',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-          transition: 'background-color 0.3s ease'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.backgroundColor = '#5a67d8';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.backgroundColor = '#667eea';
-        }}
+        <button 
+          onClick={() => {
+            setCategory('All');
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          style={{
+            marginTop: '40px',
+            padding: '15px 30px',
+            backgroundColor: '#667eea',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '1.1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = '#5a67d8';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = '#667eea';
+          }}
         >
           View All Projects
         </button>
