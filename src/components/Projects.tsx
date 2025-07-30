@@ -39,13 +39,6 @@ const Projects: React.FC = () => {
       link: 'https://github.com/sharadj34/Rise-And-Shine'
     },
     {
-        title: 'AI-Powered E-commerce Recommendation System',
-        description: 'Developed a personalized recommendation system for an e-commerce platform using collaborative filtering and deep learning. Increased user engagement by 25% and sales by 15%.',
-        technologies: ['Python', 'TensorFlow', 'Flask', 'Docker'],
-        category: 'Data Analytics',
-        link: 'https://github.com/sharadj34/ecommerce-recommendation'
-      },
-    {
       title: 'Urban Heat - Correlation with Population',
       description: 'Built a NetLogo simulation to analyze the impact of urbanization on temperature using real-world datasets (1995–2024), modeling factors like population growth, land use, pollution, and vegetation.Processed and visualized 30 years of geospatial and environmental data (e.g., LST, population density, built-up area) to study Urban Heat Island (UHI) patterns in Delhi.',
       technologies: ['Python', 'NetLogo', 'Excel', 'Regression Analysis'],
