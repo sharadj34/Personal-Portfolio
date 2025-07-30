@@ -22,6 +22,7 @@ const Projects: React.FC = () => {
     
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   const projects: Project[] = [
     {
       title: 'RideRio',
@@ -38,6 +39,13 @@ const Projects: React.FC = () => {
       link: 'https://github.com/sharadj34/Rise-And-Shine'
     },
     {
+        title: 'AI-Powered E-commerce Recommendation System',
+        description: 'Developed a personalized recommendation system for an e-commerce platform using collaborative filtering and deep learning. Increased user engagement by 25% and sales by 15%.',
+        technologies: ['Python', 'TensorFlow', 'Flask', 'Docker'],
+        category: 'Data Analytics',
+        link: 'https://github.com/sharadj34/ecommerce-recommendation'
+      },
+    {
       title: 'Urban Heat - Correlation with Population',
       description: 'Built a NetLogo simulation to analyze the impact of urbanization on temperature using real-world datasets (1995–2024), modeling factors like population growth, land use, pollution, and vegetation.Processed and visualized 30 years of geospatial and environmental data (e.g., LST, population density, built-up area) to study Urban Heat Island (UHI) patterns in Delhi.',
       technologies: ['Python', 'NetLogo', 'Excel', 'Regression Analysis'],
@@ -53,7 +61,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" style={{
       padding: isMobile ? '60px 15px' : '80px 20px',
-      backgroundColor: '#f8f9fa',
+      background: 'linear-gradient(135deg, #1f1c2c 0%, #3a3a5a 100%)',
       textAlign: 'center',
       width: '100%',
       maxWidth: '100vw',
@@ -62,17 +70,18 @@ const Projects: React.FC = () => {
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: isMobile ? '2rem' : '2.5rem',
+          fontSize: isMobile ? '2.5rem' : '3rem',
           marginBottom: '20px',
-          color: '#333',
-          fontWeight: 'bold'
-        }}>Projects</h2>
+          color: '#fff',
+          fontWeight: 'bold',
+          textShadow: '0 0 10px rgba(255,255,255,0.3)'
+        }}>My Creations</h2>
         
         <p style={{
-          fontSize: '1.1rem',
-          color: '#666',
+          fontSize: '1.2rem',
+          color: '#ccc',
           marginBottom: '50px'
-        }}>Here are some of my recent projects</p>
+        }}>A collection of my favorite projects.</p>
 
         <div style={{
           marginBottom: '40px'
@@ -82,25 +91,28 @@ const Projects: React.FC = () => {
               key={cat}
               onClick={() => setCategory(cat)}
               style={{
-                padding: '10px 20px',
-                marginRight: '10px',
-                marginBottom: '10px',
-                borderRadius: '5px',
-                border: 'none',
-                backgroundColor: category === cat ? '#667eea' : '#e0e0e0',
-                color: category === cat ? 'white' : '#333',
+                padding: '12px 25px',
+                marginRight: '15px',
+                marginBottom: '15px',
+                borderRadius: '50px',
+                border: '2px solid transparent',
+                backgroundColor: category === cat ? '#8a2be2' : 'rgba(255,255,255,0.1)',
+                color: '#fff',
                 fontWeight: 'bold',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                backdropFilter: 'blur(5px)',
               }}
               onMouseOver={(e) => {
                 if (category !== cat) {
-                  e.currentTarget.style.backgroundColor = '#d0d0d0';
+                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.borderColor = '#8a2be2';
                 }
               }}
               onMouseOut={(e) => {
                 if (category !== cat) {
-                  e.currentTarget.style.backgroundColor = '#e0e0e0';
+                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.borderColor = 'transparent';
                 }
               }}
             >
@@ -110,145 +122,178 @@ const Projects: React.FC = () => {
         </div>
 
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: isMobile ? '20px' : '30px'
+          display: isMobile ? 'flex' : 'grid',
+          flexDirection: isMobile ? 'column' : undefined,
+          gridTemplateColumns: isMobile ? undefined : 'repeat(auto-fit, minmax(380px, 1fr))',
+          gridAutoRows: 'min-content',
+          gap: isMobile ? '30px' : '30px',
+          alignItems: 'start'
         }}>
-          {filteredProjects.map((project, index) => (
-            <div key={index} style={{
-              backgroundColor: 'white',
-              padding: isMobile ? '20px' : '30px',
-              borderRadius: '15px',
-              boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
-              textAlign: 'left',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            }}
-            >
-              <h3 style={{
-                color: '#667eea',
-                fontSize: isMobile ? '1.2rem' : '1.4rem',
-                marginBottom: '15px',
-                fontWeight: 'bold'
-              }}>{project.title}</h3>
-              
-              <p style={{
-                color: '#666',
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                lineHeight: '1.6',
-                marginBottom: '20px'
-              }}>{project.description}</p>
-              
-              <div style={{
+          {filteredProjects.map((project, index) => {
+            // Calculate relative content size for dynamic styling
+            const contentLength = project.description.length + project.technologies.join('').length;
+            const isLongContent = contentLength > 200;
+            
+            return (
+              <div key={index} style={{
+                background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03))',
+                padding: isMobile ? '25px' : '30px',
+                borderRadius: '24px',
+                boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(138, 43, 226, 0.1)',
+                backdropFilter: 'blur(15px)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                textAlign: 'left',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden',
+                height: 'fit-content',
+                minHeight: isLongContent ? '420px' : '320px',
                 display: 'flex',
-                flexWrap: 'wrap',
-                gap: '8px',
-                marginBottom: '20px'
-              }}>
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} style={{
-                    backgroundColor: '#e9ecef',
-                    padding: '5px 12px',
-                    borderRadius: '15px',
-                    fontSize: '0.9rem',
-                    color: '#495057',
-                    fontWeight: '500'
-                  }}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-              }}>
-                <span style={{
-                  backgroundColor: '#667eea',
-                  color: 'white',
-                  padding: '6px 12px',
-                  borderRadius: '20px',
-                  fontSize: '0.85rem',
-                  fontWeight: '500'
-                }}>
-                  {project.category}
-                </span>
+                flexDirection: 'column'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)';
+                e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(138, 43, 226, 0.2)';
+                e.currentTarget.style.border = '1px solid rgba(138, 43, 226, 0.6)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(138, 43, 226, 0.1)';
+                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.15)';
+              }}
+              >
+                {/* Decorative gradient overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '4px',
+                  background: 'linear-gradient(90deg, #8a2be2, #ff6b9d, #4ecdc4)',
+                  borderRadius: '24px 24px 0 0'
+                }} />
                 
-                {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{
-                      color: '#667eea',
-                      textDecoration: 'none',
-                      fontWeight: 'bold',
-                      fontSize: '0.9rem',
+                <div style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <div style={{ flex: '1 0 auto' }}>
+                    <h3 style={{
+                      color: '#fff',
+                      fontSize: isMobile ? '1.4rem' : '1.6rem',
+                      marginBottom: '15px',
+                      fontWeight: '700',
+                      background: 'linear-gradient(135deg, #8a2be2, #ff6b9d)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}>{project.title}</h3>
+                    
+                    <p style={{
+                      color: '#e0e0e0',
+                      fontSize: isMobile ? '0.95rem' : '1rem',
+                      lineHeight: '1.6',
+                      marginBottom: '20px',
+                      opacity: 0.9
+                    }}>{project.description}</p>
+                    
+                    <div style={{
                       display: 'flex',
-                      alignItems: 'center',
-                      gap: '5px'
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.textDecoration = 'underline';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.textDecoration = 'none';
-                    }}
-                  >
-                    View Project →
-                  </a>
-                )}
+                      flexWrap: 'wrap',
+                      gap: '8px',
+                      marginBottom: '20px'
+                    }}>
+                      {project.technologies.map((tech, techIndex) => (
+                        <span key={techIndex} style={{
+                          background: 'linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(255, 107, 157, 0.2))',
+                          padding: '6px 14px',
+                          borderRadius: '20px',
+                          fontSize: '0.85rem',
+                          color: '#fff',
+                          fontWeight: '500',
+                          border: '1px solid rgba(138, 43, 226, 0.3)',
+                          backdropFilter: 'blur(5px)'
+                        }}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Fixed footer section */}
+                  <div style={{
+                    marginTop: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '15px',
+                    paddingTop: '15px',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}>
+                    <span style={{
+                      background: 'linear-gradient(135deg, #8a2be2, #ff6b9d)',
+                      color: 'white',
+                      padding: '8px 16px',
+                      borderRadius: '25px',
+                      fontSize: '0.85rem',
+                      fontWeight: '600',
+                      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {project.category}
+                    </span>
+                    
+                    {project.link && (
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{
+                          color: '#fff',
+                          textDecoration: 'none',
+                          fontWeight: '600',
+                          fontSize: '0.95rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          transition: 'all 0.3s ease',
+                          padding: '8px 16px',
+                          borderRadius: '20px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          backdropFilter: 'blur(5px)',
+                          whiteSpace: 'nowrap'
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.background = 'linear-gradient(135deg, #8a2be2, #ff6b9d)';
+                          e.currentTarget.style.transform = 'translateX(5px)';
+                          e.currentTarget.style.borderColor = 'rgba(138, 43, 226, 0.5)';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                        }}
+                      >
+                        View Project →
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {filteredProjects.length === 0 && (
           <div style={{
             textAlign: 'center',
-            padding: '40px',
-            color: '#666',
-            fontSize: '1.1rem'
+            padding: '50px',
+            color: '#fff',
+            fontSize: '1.2rem'
           }}>
             No projects found in this category.
           </div>
         )}
-        
-        <button 
-          onClick={() => {
-            setCategory('All');
-            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          style={{
-            marginTop: '40px',
-            padding: '15px 30px',
-            backgroundColor: '#667eea',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = '#5a67d8';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = '#667eea';
-          }}
-        >
-          View All Projects
-        </button>
       </div>
     </section>
   );
