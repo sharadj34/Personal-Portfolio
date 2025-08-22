@@ -25,11 +25,25 @@ const Projects: React.FC = () => {
 
   const projects: Project[] = [
     {
+      title: 'Smart Public Transit Analytics for Delhi Metro',
+      description: 'Smart Public Transit Analytics for Delhi Metro is a data analytics project that leverages open metro datasets and SQL to uncover insights on passenger flow, revenue, and station usage. It automates data loading, analysis, and visualization, enabling data-driven decisions to optimize Delhi Metro operations and enhance commuter experience.',
+      technologies: ['PostgreSQL', 'SQL', 'Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter Notebook'],
+      category: 'Data Analytics',
+      link: 'https://github.com/sharadj34/Smart-Public-Transit-Analytics-for-Delhi-Metro'
+    },
+    {
       title: 'RideRio',
       description: 'RideRio is a self-drive car rental app that allows users to conveniently rent cars for personal use, offering flexible booking, affordable pricing, and a wide range of vehicles.',
       technologies: ['Flutter', 'Firebase', 'Dart'],
       category: 'Application Development',
       link: 'https://github.com/sharadj34/RideRio'
+    },
+        {
+      title: 'Urban Heat - Correlation with Population',
+      description: 'Built a NetLogo simulation to analyze the impact of urbanization on temperature using real-world datasets (1995–2024), modeling factors like population growth, land use, pollution, and vegetation.Processed and visualized 30 years of geospatial and environmental data (e.g., LST, population density, built-up area) to study Urban Heat Island (UHI) patterns in Delhi.',
+      technologies: ['Python', 'NetLogo', 'Excel', 'Regression Analysis'],
+      category: 'Data Analytics',
+      link: 'https://github.com/sharadj34/Urban-Heat-Correlation-with-Population'
     },
     {
       title: 'Rise and Shine',
@@ -37,13 +51,6 @@ const Projects: React.FC = () => {
       technologies: ['Flutter', 'Firebase', 'Dart'],
       category: 'Application Development',
       link: 'https://github.com/sharadj34/Rise-And-Shine'
-    },
-    {
-      title: 'Urban Heat - Correlation with Population',
-      description: 'Built a NetLogo simulation to analyze the impact of urbanization on temperature using real-world datasets (1995–2024), modeling factors like population growth, land use, pollution, and vegetation.Processed and visualized 30 years of geospatial and environmental data (e.g., LST, population density, built-up area) to study Urban Heat Island (UHI) patterns in Delhi.',
-      technologies: ['Python', 'NetLogo', 'Excel', 'Regression Analysis'],
-      category: 'Data Analytics',
-      link: 'https://github.com/sharadj34/Urban-Heat-Correlation-with-Population'
     }
   ];
 
